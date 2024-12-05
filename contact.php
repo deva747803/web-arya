@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
     </main>
     <footer>
-        <p>&copy; 2024 Arya Daiva Maulana. All rights reserved.</p>
+        <p>&copy; 2024 Arya Daiva Maulana Website. All rights reserved.</p>
     </footer>
 </body>
 </html>
