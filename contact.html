@@ -1,11 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
-    echo "<p>Terima kasih, $name. Pesan Anda telah terkirim.</p>";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <header>
         <h1>Hubungi Kami</h1>
         <nav>
-            <a href="index.php">Beranda</a>
-            <a href="contact.php">Kontak</a>
+            <a href="index.html">Beranda</a>
+            <a href="contact.html">Kontak</a>
         </nav>
     </header>
     <main>
         <h2>Formulir Kontak</h2>
-        <form action="contact.php" method="POST">
+        <form action="#" method="POST" onsubmit="return handleSubmit(event)">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -33,9 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Kirim</button>
         </form>
+        <p id="responseMessage" style="color: green; margin-top: 1rem;"></p>
     </main>
     <footer>
-        <p>&copy; 2024 Arya Daiva Maulana Website. All rights reserved.</p>
+        <p>&copy; 2024 Simple Website. All rights reserved.</p>
     </footer>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const responseMessage = document.getElementById('responseMessage');
+            responseMessage.textContent = `Terima kasih, ${name}. Pesan Anda telah terkirim.`;
+        }
+    </script>
 </body>
 </html>
